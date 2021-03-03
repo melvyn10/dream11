@@ -1,0 +1,38 @@
+{
+  "name": "dreamteam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "seed": "node scripts/seedDB.js",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srikpv/GTBootCamp_Project2.git"
+  },
+  "author": "Srikanth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srikpv/GTBootCamp_Project2/issues"
+  },
+  "homepage": "https://github.com/srikpv/GTBootCamp_Project2#readme",
+  "dependencies": {
+    "concurrently": "^6.0.0",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "knex": "^0.21.15",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
+    "objection": "^2.2.6"
+  }
+}
